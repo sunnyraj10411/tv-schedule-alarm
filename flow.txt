@@ -1,0 +1,73 @@
+
+S1. Find the basic page for a channel 
+	eg: http://tv.burrp.com/channel/hbo/8/
+
+S2. Find date from this basic page
+    Finding date from S1 date is enclose within the tags: 
+    
+    <div class="dateMask"> <div class="dateDrag">                                                              <-- Search Tag , will start our search with this tag. 
+		<div class="dateIndicator" style="width:7.2222223%;left:7.142857%;">&nbsp;</div>
+	
+		<a href="/channel/hbo/8/1419865908500" style="width:7.142857%;" class='currentlySelectedDay'>  <-- Line containing further link S3 
+		<b>Mon</b>  										       <-- Line contains day
+		Dec 29                                                                                         <-- Line containing date
+		</a>
+
+
+		~OTHER ENTRIES~
+
+
+	</div> </div> <-- This is the closure of the div. End of search for S2
+
+     S2 list exists twice and we need to parse only the first one , as the second one is exactly the same as the first one. 
+
+
+S3. Open S3 found in S2 will be opened as http://tv.burrp.com/channel/hbo/8/1419865908500 
+     Parsing of this page to find shows and time of shows. To be done for each channel and for as much information availabe in S2. 
+     
+	<td colspan="3" class="dateHdr">                                                                        <-- Search Tag , only one instance of this tag. Relevant information contained after this tag. can be skipped , to be used in case of cross checking.
+
+	Three tags found in succession containg relevant information about shows. 
+	<td class="resultTime">                            <-- Contains time in 12hr format.
+	<td class="resultThumb">                           <-- Contains thumbnail and address to show page. 
+	<td class="resultTitle">                           <-- Contains proper Name of Show, and address to show page as /show/lee-daniels-the-butler-hbo/143501/11974836/1420052940000 S4
+
+
+S4 Open S4 as obtained in S3 
+	Search for tags: 
+
+	1. Show Type:
+		<th>Show Type:</th>
+		<td>Movie</td>
+		
+	2. Language:
+		<th>Language:</th>
+		<td>English</td>
+			
+	3. Genre:
+		<th>Genre:</th>
+		<td>
+		History
+		Drama
+		</td>
+
+	4. Show description
+
+		<h4>Show description</h4>
+		<div class="synopsis">
+		A historical drama loosely based on the real life of Eugene Allen, the butler who worked in the White House for 34 years.
+		</div>
+
+	5. Show Details (contains cast , directed by , written by , produced by , music by , release date , imdb rating, nominated for , also known as , trivia) --> also known as can be important help in searching for shows. 
+
+
+S5 Above contained table to be written in jsop format <details to be decided>
+S1 how to find S1 link is to be decide , can it be done manually ? as number of channel are limited. 
+         
+	 
+        
+ 
+	
+
+	 
+
