@@ -1,0 +1,17 @@
+source files: 
+Channel_crawler.cpp
+Channel_crawler.h
+
+Compilation command: g++ -std=c++11 Channel_crawler.cpp -lcurl -lsqlite3
+
+Increase the stack size for program execution as default stack size crashes with regex calls: 
+ulimit -s 204800 (stack size of 200mb)
+
+
+
+Execution files and director. 
+1. ./a.out (binary)
+2. ./tv_crawler.conf  (configuration file , contains url and channel names) added so that we can run multiple instances of a.out in separate director and with separate conf file for simultaneours execution. 
+#3. ./output (directory) this directory should be made manually. all the output is stored here
+4. ./tvshow-db.sql defines the db schema.
+5. ./tvshow.db will be created on executing the binary, it will contain the tv schedule data.
